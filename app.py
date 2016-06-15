@@ -46,8 +46,4 @@ api = Api(app)
 api.add_resource(StatesEntries, '/api/v1/reclamacoes', endpoint="reclamacoes")
 
 if __name__ == "__main__":
-<<<<<<< HEAD
-    app.run(port=5000)
-=======
     app.run()
->>>>>>> 28deba242a9477e97a5decde0d9f7da3123c7515
