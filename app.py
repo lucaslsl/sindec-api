@@ -1,5 +1,5 @@
 import os
-from flask import Flask,request,jsonify
+from flask import Flask,request,jsonify,render_template
 from flask_mongoengine import MongoEngine
 from flask_restful import Resource, Api
 from models import StateDataEntry
@@ -7,6 +7,11 @@ from models import StateDataEntry
 app = Flask(__name__)
 app.config.from_object(os.environ['APP_SETTINGS'])
 db = MongoEngine(app)
+
+
+@app.route("/")
+def Index():
+    return render_template('index.html')
 
 
 class StatesEntries(Resource):
@@ -41,4 +46,8 @@ api = Api(app)
 api.add_resource(StatesEntries, '/api/v1/reclamacoes', endpoint="reclamacoes")
 
 if __name__ == "__main__":
+<<<<<<< HEAD
     app.run(port=5000)
+=======
+    app.run()
+>>>>>>> 28deba242a9477e97a5decde0d9f7da3123c7515
