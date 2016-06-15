@@ -31,7 +31,7 @@ class StatesEntries(Resource):
             queryset = queryset.filter(Ano=int(filter_Ano))
 
         if filter_Mes is not None:
-            queryset = queryset.filter(Mes=filter_Mes)
+            queryset = queryset.filter(Mes=int(filter_Mes))
 
         queryset = queryset.paginate(page=pg_page, per_page=pg_per_page)
 
