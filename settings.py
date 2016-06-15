@@ -22,7 +22,7 @@ class StagingSettings(Settings):
     DEVELOPMENT = True
     DEBUG = True
     MONGODB_SETTINGS = {
-        'db': 'sindec-api',
+        'db': 'sindec-api-st',
         'host': os.environ.get('MONGODB_URI')
     }
     SECRET_KEY = os.environ.get('SECRET_KEY')
