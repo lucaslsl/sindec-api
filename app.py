@@ -23,7 +23,7 @@ class StatesEntries(Resource):
         if pg_per_page>27:
             pg_per_page = 27
 
-        queryset = StateDataEntry.objects()
+        queryset = StateDataEntry.objects().order_by('-Ano','-Mes')
 
         if filter_UF is not None:
             queryset = queryset.filter(UF=filter_UF)
