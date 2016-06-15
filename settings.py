@@ -12,7 +12,7 @@ class Settings(object):
 class ProductionSettings(Settings):
     DEBUG = False
     MONGODB_SETTINGS = {
-        'db': 'complaints-api',
+        'db': 'sindec-api',
         'host': os.environ.get('MONGODB_URI')
     }
     SECRET_KEY = os.environ.get('SECRET_KEY')
@@ -22,7 +22,7 @@ class StagingSettings(Settings):
     DEVELOPMENT = True
     DEBUG = True
     MONGODB_SETTINGS = {
-        'db': 'complaints-api',
+        'db': 'sindec-api',
         'host': os.environ.get('MONGODB_URI')
     }
     SECRET_KEY = os.environ.get('SECRET_KEY')
