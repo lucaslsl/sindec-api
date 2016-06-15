@@ -1,5 +1,5 @@
 import os
-from flask import Flask,request,jsonify
+from flask import Flask,request,jsonify,render_template
 from flask_mongoengine import MongoEngine
 from flask_restful import Resource, Api
 from models import StateDataEntry
@@ -7,6 +7,11 @@ from models import StateDataEntry
 app = Flask(__name__)
 app.config.from_object(os.environ['APP_SETTINGS'])
 db = MongoEngine(app)
+
+
+@app.route("/")
+def Index():
+    return render_template('index.html')
 
 
 class StatesEntries(Resource):
