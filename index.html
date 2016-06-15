@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+    	/*$.getJSON("https://sindec-api.herokuapp.com/api/v1/reclamacoes?jsoncallback=?", function(result){
+            $.each(result, function(i, field){
+                console.log("certo");
+                console.log(field);
+                $("div").append(field + " ");
+            });
+        }); */
+          $.getJSON('https://sindec-api.herokuapp.com/api/v1/reclamacoes?jsoncallback=?', {
+			format: "json"
+			})
+			.success(function( data ) {
+				console.log("certo");
+        		$.each( data.items, function( i, item ) {
+					console.log("certo");
+				//	$( "<img>" ).attr( "src", item.media.m ).appendTo( "#images" );
+				});
+			});
+	});
+});
+</script>
+</head>
+<body>
+
+<button>Get JSON data</button>
+
+<div></div>
+
+</body>
+</html>
