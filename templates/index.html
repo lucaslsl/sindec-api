@@ -12,11 +12,17 @@
 
     <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/lodash.core.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bluebird.min.js') }}"></script>
 
     <script>
     $(document).ready(function(){
-        $.getJSON("/api/v1/reclamacoes", function(data) {
-          console.log(data);
+        full_year = [];
+        for(var page=1;page<=12;page++){
+            full_year.push($.getJSON('/api/v1/reclamacoes',{Ano: 2015, page: page,per_page:27}));
+        }
+        Promise.all(full_year).then(function(result){
+            console.log(result);
         });
     });
     </script>
