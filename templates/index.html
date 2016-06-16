@@ -150,11 +150,12 @@ $(document).ready(function(){
     }
 
     /*{Ano: 2015, page: page,per_page:27}*/
-    function requestApi(params){
+    function requestApi(params,num_pages){
         full_year = [];
-        for(var page=1;page<=12;page++){
-            params.page = page;
-            full_year.push($.getJSON('/api/v1/reclamacoes',params));
+        var p = params;
+        for(var page=1;page<=num_pages;page++){
+            p.page = page;
+            full_year.push($.getJSON('/api/v1/reclamacoes',p));
         }
         return full_year;
     }
@@ -346,38 +347,40 @@ $(document).ready(function(){
     var params_2015 = {Ano: 2015, page: 1,per_page:27};
     var params_2014 = {Ano: 2014, page: 1,per_page:27};
     var params_2013 = {Ano: 2013, page: 1,per_page:27};
-    var params_2012 = {Ano: 2013, page: 1,per_page:27};
-    full_year_2015 = requestApi(params_2015);
-    full_year_2014 = requestApi(params_2014);
-    full_year_2013 = requestApi(params_2013);
-    full_year_2012 = requestApi(params_2012);
-      Promise.all(full_year_2015).then(function(result){
-           total2k15 = totalPorAno(result);
-           arrayValores.push(total2k15);
-            Promise.all(full_year_2014).then(function(result){
-                total2k14 =  totalPorAno(result);
-                arrayValores.push(total2k14);
-                  Promise.all(full_year_2013).then(function(result){
-                      total2k13 =  totalPorAno(result);
-                      arrayValores.push(total2k13);
-                    Promise.all(full_year_2012).then(function(result){
-                          total2k12 =  totalPorAno(result);
-                          arrayValores.push(total2k12);
-                          for(var i = 0; i < arrayValores.length ; i++){
-                              cores.push(getRandomColor());                            
-                          }
-                          var ctx = $("#myChartBar");
-                          graphBar(ctx,arrayParams,arrayValores,cores,titulo);
-                          $('#carregando').remove();
-                          $('#btnBarra').show();
-                          $('#btnLinha').show();
-                          $('#btnPizza').show();
-              });
-            });
-          });
-       });   
-          
-   
+    var params_2012 = {Ano: 2012, page: 1,per_page:27};
+    full_year_2015 = requestApi(params_2015,12);
+    full_year_2014 = requestApi(params_2014,12);
+    full_year_2013 = requestApi(params_2013,12);
+    full_year_2012 = requestApi(params_2012,11);
+
+
+    var get_year_results = function(full_year_requests,funcao_count){
+       return new Promise(function(resolve,reject){
+           Promise.all(full_year_requests).then(function(result){
+               resolve(funcao_count(result));
+           }).catch(function(err){
+               reject(err)
+           });
+       });
+    }
+
+    Promise.all([
+      get_year_results(full_year_2015,totalPorAno),
+      get_year_results(full_year_2014,totalPorAno),
+      get_year_results(full_year_2013,totalPorAno),
+      get_year_results(full_year_2012,totalPorAno),
+      ]).then(function(result){
+        arrayValores = result;
+        for(var i = 0; i < arrayValores.length ; i++){
+            cores.push(getRandomColor());                            
+        }
+        var ctx = $("#myChartBar");
+        graphBar(ctx,arrayParams,arrayValores,cores,titulo);
+        $('#carregando').remove();
+        $('#btnBarra').show();
+        $('#btnLinha').show();
+        $('#btnPizza').show();
+    });
 
 });
 
