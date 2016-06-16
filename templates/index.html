@@ -10,11 +10,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   <link rel="icon" href="assets/img/favicon.ico">
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/vendor.css') }}">
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/demo.css') }}">
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/custom.css') }}">
+  <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../static/css/vendor.css">
+  <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+  <link rel="stylesheet" type="text/css" href="../static/css/css/demo.css">
+  <link rel="stylesheet" type="text/css" href="../static/css/custom.css">
+  <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css">
 </head>
 <body>
 
@@ -60,30 +61,44 @@
                      <h3 id="carregando">Carregando..</h3>
                     <canvas id="myChart" width="400" height="200"></canvas>
                 </div>
-              </div>
+               </div>
               <div class="col-sm-3">
                 <div class="pricing-table-footer block-light">
                     <label for="Modelo">Grafico sobre:</label>
                     <select id="modelo" name="modelo" class="form-control">
-                        <option>Total de Reclamações</option>
+                        <option value= "Total de Reclamações por Ano">Total de Reclamações</option>
                     </select>  
                 </div>
                 <div class="col-sm-12 pricing-table-footer block-light">
                     <div class="col-sm-6">
                        <label for="Ano">Ano:</label>
                         <select id="ano" name="ano" class="form-control">
-                            <option>Todos</option>
-                            <option>2015</option>
+                            <option value="Todos">Todos</option>
+                            <option value="2015">2015</option>
+                            <option value="2014">2014</option>
+                            <option value="2013">2013</option>
                         </select>
                     </div>
                     <div class="col-sm-6">
                        <label for="Ano">Mês:</label>
                         <select id="mes" name="mes" class="form-control">
-                            <option>Todos</option>
+                            <option value="Todos">Todos</option>
+                            <option value="1">Janeiro</option>
+                            <option value="2">Fevereiro</option>
+                            <option value="3">Março</option>
+                            <option value="4">Abril</option>
+                            <option value="5">Maio</option>
+                            <option value="6">Junho</option>
+                            <option value="7">Julho</option>
+                            <option value="8">Agosto</option>
+                            <option value="9">Setembro</option>
+                            <option value="10">Outubro</option>
+                            <option value="11">Novembro</option>
+                            <option value="12">Dezembro</option>
                         </select>
                     </div>                    
                 </div>  
-                <button type="submit" class="btn btn-warning btn-block">Desenhar Grafico</button>
+                <button id= "btnMontaGrafico" class="btn btn-warning btn-block">Desenhar Grafico</button>
               </div>
             </div>
             <div class="col-sm-12">
@@ -96,62 +111,23 @@
             </div>
           </div>
         </div> <!-- #home -->
-
-        <div id="contact" class="section block-default">
-          <div class="container">
-            <div class="section-heading text-center">
-              <h5>Flat Style Landing Page</h5>
-              <h2>Get in touch with us</h2>
-              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
-            </div>
-            <div class="row section-content m-t-60-sm-min">
-              <div class="col-sm-6 col-md-5">
-              </div>
-              <div class="col-sm-6 col-md-offset-1 m-t-60-xs-max">
-                <div class="col-inner">
-                  <form class="_default" id="contactForm" novalidate="novalidate">
-                    <div class="form-group required">
-                      <label class="form-label" for="contactName">Your name</label>
-                      <input class="form-control" id="contactName" type="text" name="name">
-                    </div>
-                    <div class="form-group required">
-                      <label class="form-label" for="contactEmail">Email address</label>
-                      <input class="form-control" id="contactEmail" type="text" name="email">
-                    </div>
-                    <div class="form-group required">
-                      <label class="form-label" for="contactMessage">Message</label>
-                      <textarea class="form-control" id="contactMessage" rows="4" name="message"></textarea>
-                    </div>
-                    <div class="btn-wrap">
-                      <button type="submit" class="btn btn-primary btn-block">Send Message</button>
-                    </div>
-                    <div class="form-notify"></div>
-                  </form> <!-- #contactForm -->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> <!-- #contact -->
       </main> <!-- .site-main -->
     </div>
   </div>
 
-  <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-1.11.3.min.js') }}"></script>
-  <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-  <script type="text/javascript" src="{{ url_for('static', filename='js/plugin.js') }}"></script>
-  <script type="text/javascript" src="{{ url_for('static', filename='js/variable.js') }}"></script>
-  <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
-  <script type="text/javascript" src="{{ url_for('static', filename='js/demo.js') }}"></script>
-  <script type="text/javascript" src="{{ url_for('static', filename='js/Chart.min.js') }}"></script>
-  <script type="text/javascript" src="{{ url_for('static', filename='js/lodash.core.min.js') }}"></script>
-  <script type="text/javascript" src="{{ url_for('static', filename='js/lodash.core.min.js') }}"></script>
-  <script type="text/javascript" src="{{ url_for('static', filename='js/bluebird.min.js') }}"></script>
+  <script type="text/javascript" src="../static/js/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="../static/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../static/js/plugin.js"></script>
+  <script type="text/javascript" src="../static/js/variable.js"></script>
+  <script type="text/javascript" src="../static/js/main.js"></script>
+  <script type="text/javascript" src="../static/js/demo.js"></script>
+  <script type="text/javascript" src="../static/js/Chart.min.js"></script>
+  <script type="text/javascript" src="../static/js/odash.core.min.js"></script>
+  <script type="text/javascript" src="../static/js/lodash.core.min.js"></script>
+  <script type="text/javascript" src="../static/js/bluebird.min.js"></script>
 
 <script>
 $(document).ready(function(){
-
-/*  $('#btnLinha').hide();
-  $('#btnPizza').hide();*/
 
     function totalPorAno(dados){
         total = 0;
@@ -160,10 +136,12 @@ $(document).ready(function(){
            });
         return total;
     }
+
     /*{Ano: 2015, page: page,per_page:27}*/
     function requestApi(params){
         full_year = [];
-        for(var page=params.page;page<=12;page++){
+        for(var page=1;page<=12;page++){
+            params.page = page;
             full_year.push($.getJSON('/api/v1/reclamacoes',params));
         }
         return full_year;
@@ -173,11 +151,6 @@ $(document).ready(function(){
         return '#'+Math.random().toString(16).substr(-6);
     }
 
-    /*
-    *canvas é elemento capturado pela id, onde o grafico sera renderizado.
-    *Eixo Y(label) , representa os parametros do grafico, eixo X, os valores de cada parametro. ex: label['2015']. data[200]
-    *
-    */
     function graphBar(canvas,eixoY,eixoX,cores,titulo){
             var myChart = new Chart(canvas, {
                 type: 'bar',
@@ -196,6 +169,10 @@ $(document).ready(function(){
                         yAxes: [{
                             gridLines: {
                                 display:false //Linhas ao fundo do grafico.
+                            },
+                            ticks: {
+                                min : 0,
+                                stepSize: 600000
                             }
                         }],
                         xAxes: [{
@@ -217,7 +194,6 @@ $(document).ready(function(){
                     datasets: [{
                         label: titulo,
                         data: eixoX, 
-                        backgroundColor: cores,
                         borderColor: cores,
                         borderWidth: 1
                     }]
@@ -227,6 +203,10 @@ $(document).ready(function(){
                         yAxes: [{
                             gridLines: {
                                 display:true //Linhas ao fundo do grafico.
+                            },
+                            ticks: {
+                                min : 0,
+                                stepSize: 600000
                             }
                         }],
                         xAxes: [{
@@ -258,76 +238,121 @@ $(document).ready(function(){
         });
     }
 
+    function montaGrafico(modelo, ano, mes){
+      if (modelo == "Total de Reclamações por Ano")
+        montaGraficoPorAno(ano, mes, modelo);
+
+      $('#carregando').remove();
+      $('#btnLinha').show();
+      $('#btnPizza').show();
+    }
+
+    function montaGraficoPorAno(ano, mes, titulo){
+      var full_year = [];
+      var total = 0;
+      
+      if (ano  == "Todos")
+        arrayParams = ['2015','2014','2013','2012'];
+      else
+        arrayParams.push(ano);
+
+      for(var i = 0; i < 1; i ++){
+        for(var page = 1; page <= 1; page ++){
+          var params = {Ano: arrayParams[i], page: page, per_page:27};
+          full_year.push(requestApi(params));
+          var flag = false;
+          Promise.all(full_year).then(function(result){
+             //total = totalPorAno(result);
+             console.log(result);
+             arrayValores.push(total);
+             flag = true;
+          });
+          while(true){
+            if(flag){
+              for(var i = 0; i < arrayValores.length ; i ++){
+                cores.push(getRandomColor());                            
+              }
+            graphBar(ctx,arrayParams,arrayValores,cores,titulo);
+            flag = false;
+            break;
+            }
+              
+          }
+          
+        }
+  
+      }
+   }
+
     $('#btnLinha').click(function(){
-      graphLine(canvas,eixoY,eixoX,cores,titulo);
+      graphLine(ctx,arrayParams,arrayValores,cores,modelo);
     });
 
     $('#btnPizza').click(function(){
-      graphPie(canvas,eixoY,eixoX,cores,titulo);
+      graphPie(ctx,arrayParams,arrayValores,cores,modelo);
     });
 
+    /*$('#btnMontaGrafico').click(function(){
+      modelo = $("#modelo").val();
+      var ano = $("#ano").val();
+      var mes = $("#mes").val();
+      montaGrafico(modelo, ano, mes);
+    }); 
+      
+    */ 
 
+    window.arrayParams = []; //Refatorar para gerar dinamicamente, recebendo do input do usuario.
+    window.arrayValores = [];
+    window.modelo = "";
+    window.cores = [];
+    window.ctx = $("#myChart");
 
     var data = [];
-
     var full_year_2015 = [];
     var full_year_2014 = [];
     var full_year_2013 = [];
     var full_year_2012 = [];
-
     var total2k15 = 0;
     var total2k14 = 0;
     var total2k13 = 0;
     var total2k12 = 0;
-
     var titulo = 'Total de Reclamações por Ano'
     var arrayParams = ['2015','2014','2013','2012']; //Refatorar para gerar dinamicamente, recebendo do input do usuario.
     var arrayValores = [];
-
     var params_2015 = {Ano: 2015, page: 1,per_page:27};
     var params_2014 = {Ano: 2014, page: 1,per_page:27};
     var params_2013 = {Ano: 2013, page: 1,per_page:27};
     var params_2012 = {Ano: 2013, page: 1,per_page:27};
-
     full_year_2015 = requestApi(params_2015);
     full_year_2014 = requestApi(params_2014);
     full_year_2013 = requestApi(params_2013);
     full_year_2012 = requestApi(params_2012);
-
-
       Promise.all(full_year_2015).then(function(result){
            total2k15 = totalPorAno(result);
            arrayValores.push(total2k15);
-
             Promise.all(full_year_2014).then(function(result){
                 total2k14 =  totalPorAno(result);
                 arrayValores.push(total2k14);
-
                   Promise.all(full_year_2013).then(function(result){
                       total2k13 =  totalPorAno(result);
                       arrayValores.push(total2k13);
-
                     Promise.all(full_year_2012).then(function(result){
                           total2k12 =  totalPorAno(result);
                           arrayValores.push(total2k12);
-                          var cores = [];
                           for(var i = 0; i < arrayValores.length ; i++){
                               cores.push(getRandomColor());                            
                           }
-
                           var ctx = $("#myChart");
                           graphBar(ctx,arrayParams,arrayValores,cores,titulo);
                           $('#carregando').remove();
                           $('#btnLinha').show();
                           $('#btnPizza').show();
-
-
               });
             });
           });
-       });
-
-     
+       });   
+          
+   
 
 });
 
