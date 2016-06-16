@@ -42,7 +42,7 @@ class StatesEntries(Resource):
 
         queryset = queryset.paginate(page=pg_page, per_page=pg_per_page)
 
-        return jsonify(has_next=queryset.has_next, has_prev=queryset.has_prev,data=queryset.items,)
+        return jsonify(total_count=queryset.total,has_next=queryset.has_next, has_prev=queryset.has_prev,data=queryset.items,)
 
 api = Api(app)
 api.add_resource(StatesEntries, '/api/v1/reclamacoes', endpoint="reclamacoes")
