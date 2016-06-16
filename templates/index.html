@@ -50,12 +50,12 @@
         </nav>
       </header> <!-- .site-header -->
       <main class="site-main">
-        <div id="home" class="section block-primary position-r align-c-xs-max">
+        <div id="home" class="section block-primary position-r align-c-xs-max" style="min-height:100vh;">
           <div id="particles-js" class="site-bg">
             <div class="site-bg-img"></div>
             <div class="site-bg-overlay"></div>
             <div class="site-bg-effect layer" data-depth=".30"></div>
-            <canvas class="site-bg-canvas layer" data-depth=".30"></canvas>
+            <canvas class="site-bg-canvas layer" data-depth=".30" style="min-height:100vh;"></canvas>
           </div> <!-- .site-bg -->
 
           <div class="container">
@@ -64,8 +64,8 @@
                 <div class="pricing-table-footer block-light">
                      <h3 id="carregando">Carregando..</h3>
                     <canvas id="myChartBar" width="400" height="200"></canvas>
-                    <canvas id="myChartLine" width="400" height="200"></canvas>
-                    <canvas id="myChartPie" width="400" height="200"></canvas>
+                    <canvas id="myChartLine" style="display:none" width="400" height="200"></canvas>
+                    <canvas id="myChartPie" style="display:none" width="400" height="200"></canvas>
                 </div>
                </div>
               <div class="col-sm-3" style="display:none">
@@ -343,7 +343,7 @@ $(document).ready(function(){
     var total2k12 = 0;
     var titulo = 'Total de Reclamações por Ano'
     var arrayParams = ['2015','2014','2013','2012']; //Refatorar para gerar dinamicamente, recebendo do input do usuario.
-    var arrayValores = [];
+    var arrayValores = [];  
     var params_2015 = {Ano: 2015, page: 1,per_page:27};
     var params_2014 = {Ano: 2014, page: 1,per_page:27};
     var params_2013 = {Ano: 2013, page: 1,per_page:27};
