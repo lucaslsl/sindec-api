@@ -1,36 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-    $("button").click(function(){
-    	/*$.getJSON("https://sindec-api.herokuapp.com/api/v1/reclamacoes?jsoncallback=?", function(result){
-            $.each(result, function(i, field){
-                console.log("certo");
-                console.log(field);
-                $("div").append(field + " ");
-            });
-        }); */
-          $.getJSON('https://sindec-api.herokuapp.com/api/v1/reclamacoes?jsoncallback=?', {
-			format: "json"
-			})
-			.success(function( data ) {
-				console.log("certo");
-        		$.each( data.items, function( i, item ) {
-					console.log("certo");
-				//	$( "<img>" ).attr( "src", item.media.m ).appendTo( "#images" );
-				});
-			});
-	});
-});
-</script>
+<meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
 </head>
+
 <body>
+    <main>
+    </main>
 
-<button>Get JSON data</button>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
 
-<div></div>
-
+    <script>
+    $(document).ready(function(){
+        $.getJSON("/api/v1/reclamacoes?Ano=2015&per_page=27&page=1", function(data) {
+          console.log(data);
+        });
+    });
+    </script>
 </body>
+
 </html>
+
+
+
+Traceback (most recent call last):
+  File "app.py", line 2, in <module>
+    from flask import Flask,request,jsonify,render_template
+ImportError: No module named 'flask'
+(venv) vitor@vitor-X450CC:~/Documentos/sindec-api$ 
+
+
+APP_SETTINGS=settings.StagingSettings MONGODB_URI=mongodb://sindec-api-user:PythonSindecAPI2016@ds015574.mlab.com:15574/sindec-api-st python3 app.py
